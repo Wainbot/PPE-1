@@ -1,0 +1,207 @@
+      <!-- navbar header -->
+      <div class="navbar-header {{app.settings.navbarHeaderColor}}">
+        <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
+          <i class="glyphicon glyphicon-cog"></i>
+        </button>
+        <button class="pull-right visible-xs" ui-toggle-class="show" data-target=".app-aside" ui-scroll="app">
+          <i class="glyphicon glyphicon-align-justify"></i>
+        </button>
+        <!-- brand -->
+        <!--<a href="app/dashboard" class="navbar-brand text-lt">-->
+        <a href="app/dashboard" class="text-lt">
+          <!--<i class="fa fa-btc"></i>-->
+          <img src="img/typiak.png" alt="." class="">
+          <!--<span class="hidden-folded m-l-xs">{{app.name}}</span>-->
+        </a>
+        <!-- / brand -->
+      </div>
+      <!-- / navbar header -->
+
+      <!-- navbar collapse -->
+      <div class="collapse navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
+        <!-- buttons -->
+        <div class="nav navbar-nav m-l-sm hidden-xs">
+          <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+            <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
+          </a>
+          <a href class="btn no-shadow navbar-btn" ui-toggle-class="show" target="#aside-user">
+            <i class="icon-user fa-fw"></i>
+          </a>
+        </div>
+        <!-- / buttons -->
+
+         <!--link and dropdown-->
+        <ul class="nav navbar-nav hidden-sm">
+          <!--<li class="active">-->
+            <!--<a href><i class="fa fa-cloud-upload fa-fw"></i> <span translate="header.navbar.UPLOAD">Upload</span></a>-->
+          <!--</li>-->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+              <span>Nouveau</span> <span class="caret"></span>
+            </a>
+            <ul ng-show="app.user.type == 'Administrateur'" class="dropdown-menu" role="menu">
+              <li><a ui-sref="app.form.newuser">Utilisateur</a></li>
+              <!--<li class="divider"></li>-->
+              <li><a ui-sref="app.404">Prêt</a></li>
+              <!--<li>-->
+                <!--<a href="#">-->
+                  <!--<span class="badge bg-info pull-right">5</span>-->
+                  <!--<span translate="header.navbar.new.TASK">Task</span>-->
+                <!--</a>-->
+              <!--</li>-->
+              <!--<li><a href="#" translate="header.navbar.new.USER">User</a></li>-->
+              <!--<li class="divider"></li>-->
+              <!--<li>-->
+                <!--<a href="#">-->
+                  <!--<span class="badge bg-danger pull-right">4</span>-->
+                  <!--<span translate="header.navbar.new.EMAIL">Email</span>-->
+                <!--</a>-->
+              <!--</li>-->
+            </ul>
+              <ul ng-show="app.user.type != 'Administrateur' && app.user.type != 'Gerant'" class="dropdown-menu" role="menu">
+                  <li><a ui-sref="app.404">Frais</a></li>
+                  <!--<li>-->
+                  <!--<a href="#">-->
+                  <!--<span class="badge bg-info pull-right">5</span>-->
+                  <!--<span translate="header.navbar.new.TASK">Task</span>-->
+                  <!--</a>-->
+                  <!--</li>-->
+                  <!--<li><a href="#" translate="header.navbar.new.USER">User</a></li>-->
+                  <!--<li class="divider"></li>-->
+                  <!--<li>-->
+                  <!--<a href="#">-->
+                  <!--<span class="badge bg-danger pull-right">4</span>-->
+                  <!--<span translate="header.navbar.new.EMAIL">Email</span>-->
+                  <!--</a>-->
+                  <!--</li>-->
+              </ul>
+              <ul ng-show="app.user.type == 'Gerant'" class="dropdown-menu" role="menu">
+                  <li><a ui-sref="app.form.newuser">Utilisateur</a></li>
+                  <!--<li class="divider"></li>-->
+                  <li><a ui-sref="app.404">Prêt</a></li>
+                  <!--<li class="divider"></li>-->
+                  <li><a ui-sref="app.404">Frais</a></li>
+                  <!--<li>-->
+                  <!--<a href="#">-->
+                  <!--<span class="badge bg-info pull-right">5</span>-->
+                  <!--<span translate="header.navbar.new.TASK">Task</span>-->
+                  <!--</a>-->
+                  <!--</li>-->
+                  <!--<li><a href="#" translate="header.navbar.new.USER">User</a></li>-->
+                  <!--<li class="divider"></li>-->
+                  <!--<li>-->
+                  <!--<a href="#">-->
+                  <!--<span class="badge bg-danger pull-right">4</span>-->
+                  <!--<span translate="header.navbar.new.EMAIL">Email</span>-->
+                  <!--</a>-->
+                  <!--</li>-->
+              </ul>
+          </li>
+        </ul>
+         <!--/ link and dropdown-->
+
+        <!-- search form -->
+        <!--<form class="navbar-form navbar-form-sm navbar-left shift" ui-shift="prependTo" target=".navbar-collapse" role="search" ng-controller="TypeaheadDemoCtrl">-->
+          <!--<div class="form-group">-->
+            <!--<div class="input-group">-->
+              <!--<input type="text" ng-model="selected" typeahead="state for state in states | filter:$viewValue | limitTo:8" class="form-control input-sm bg-light no-border rounded padder" placeholder="Search projects...">-->
+              <!--<span class="input-group-btn">-->
+                <!--<button type="submit" class="btn btn-sm bg-light rounded"><i class="fa fa-search"></i></button>-->
+              <!--</span>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</form>-->
+        <!-- / search form -->
+
+        <!-- nabar right -->
+        <ul class="nav navbar-nav navbar-right">
+          <!--<li class="dropdown hidden-sm">-->
+            <!--<a href class="dropdown-toggle" data-toggle="dropdown">-->
+              <!--{{selectLang}} <b class="caret"></b>-->
+            <!--</a>-->
+            <!--&lt;!&ndash; dropdown &ndash;&gt;-->
+            <!--<ul class="dropdown-menu animated fadeInRight w">-->
+              <!--<li ng-repeat="(langKey, label) in langs">-->
+                <!--<a ng-click="setLang(langKey)">{{label}}</a>-->
+              <!--</li>-->
+            <!--</ul>-->
+            <!--&lt;!&ndash; / dropdown &ndash;&gt;-->
+          <!--</li>-->
+          <li class="hidden-xs">
+            <a ui-fullscreen></a>
+          </li>
+          <!--<li class="dropdown">-->
+            <!--<a href class="dropdown-toggle">-->
+              <!--<i class="icon-bell fa-fw"></i>-->
+              <!--<span class="visible-xs-inline">Notifications</span>-->
+              <!--<span class="badge badge-sm up bg-danger pull-right-xs">{{app.user.nbNotification}}</span>-->
+            <!--</a>-->
+            <!--&lt;!&ndash; dropdown &ndash;&gt;-->
+            <!--<div class="dropdown-menu w-xl animated fadeInUp">-->
+              <!--<div class="panel bg-white">-->
+                <!--<div class="panel-heading b-light bg-light">-->
+                  <!--<strong>Vous avez <span>{{app.user.nbNotification}}</span> notifications</strong>-->
+                <!--</div>-->
+                <!--<div class="list-group">-->
+                  <!--<a href class="media list-group-item">-->
+                    <!--<span class="pull-left thumb-sm">-->
+                      <!--<img src="img/a0.jpg" alt="..." class="img-circle">-->
+                    <!--</span>-->
+                    <!--<span class="media-body block m-b-none">-->
+                      <!--Use awesome animate.css<br>-->
+                      <!--<small class="text-muted">10 minutes ago</small>-->
+                    <!--</span>-->
+                  <!--</a>-->
+                  <!--<a href class="media list-group-item">-->
+                    <!--<span class="media-body block m-b-none">-->
+                      <!--1.0 initial released<br>-->
+                      <!--<small class="text-muted">1 hour ago</small>-->
+                    <!--</span>-->
+                  <!--</a>-->
+                <!--</div>-->
+                <!--<div class="panel-footer text-sm">-->
+                  <!--<a href class="pull-right"><i class="fa fa-cog"></i></a>-->
+                  <!--<a href="#notes" data-toggle="class:show animated fadeInRight">Voir toutes les notifications</a>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; / dropdown &ndash;&gt;-->
+          <!--</li>-->
+          <li class="dropdown">
+            <a href class="dropdown-toggle clear" data-toggle="dropdown">
+              <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
+                <img src="{{app.user.image}}" alt="...">
+                <!--<i class="on md b-white bottom"></i>-->
+              </span>
+              <span class="hidden-sm hidden-md">{{app.user.firstname}}&nbsp;{{app.user.name}}</span> <b class="caret"></b>
+            </a>
+            <!-- dropdown -->
+              <ul class="dropdown-menu animated fadeInRight w hidden-folded">
+                  <!--<li class="wrapper b-b m-b-sm bg-info m-t-n-xs">-->
+                      <!--<span class="arrow top hidden-folded arrow-info"></span>-->
+                      <!--<div>-->
+                          <!--<a href>-->
+                              <!--<span class="badge bg-danger pull-right">{{app.user.nbNotification}}</span>-->
+                              <!--Notifications-->
+                          <!--</a>-->
+                      <!--</div>-->
+                  <!--</li>-->
+                  <!--<li>-->
+                      <!--<a ui-sref="app.page.profile">Profil</a>-->
+                  <!--</li>-->
+                  <li ng-show="app.user.type != 'Administrateur'">
+                      <a ui-sref="app.form.infos">Mes infos</a>
+                  </li>
+                  <li class="divider" ng-show="app.user.type != 'Administrateur'"></li>
+                  <li>
+                      <a ng-click="deconnection()" ui-sref="access.signin">Se déconnecter</a>
+                  </li>
+              </ul>
+            <!-- / dropdown -->
+          </li>
+        </ul>
+        <!-- / navbar right -->
+
+      </div>
+      <!-- / navbar collapse -->

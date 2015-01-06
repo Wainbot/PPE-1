@@ -1,0 +1,57 @@
+<div>
+    <div class="wrapper-md bg-light b-b">
+        <button type="button" class="btn btn-default btn-addon pull-right m-t-n-xs" ng-click="modifierInfos(); showSuccess = false;">
+            <i class="fa fa-edit"></i> Modifier mes informations
+        </button>
+        <h1 class="m-n font-thin h3">Mes infos</h1>
+        
+    </div>
+    <div ng-show="showSuccess" class="alert alert-success alert-dismissable">
+            <div><span>Modification(s) enregistrée(s) avec succès !</span></div>
+        </div>
+    <div class="hbox hbox-auto-xs hbox-auto-sm">
+        <form name="forma" class="form-horizontal form-validation">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" placeholder="Email" ng-model="app.user.email" required ng-disabled="!isModifiable">
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Nom</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Nom" ng-model="app.user.name" required ng-disabled="!isModifiable">
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Prénom</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Prénom" ng-model="app.user.firstname" required ng-disabled="!isModifiable">
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Type</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Type" ng-model="app.user.type" required disabled>
+                        </div>
+                    </div>
+                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Mot de passe</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control" placeholder="Password" ng-model="app.user.password" required ng-disabled="!isModifiable">
+                        </div>
+                    </div>
+                </div>
+                <footer class="panel-footer text-right bg-light lter">
+                    <button ng-show="isModifiable" type="submit" class="btn {{app.settings.navbarCollapseColor}}" ng-click="modifierUser(); showSuccess = true;">Enregistrer</button>
+                </footer>
+            </div>
+        </form>
+    </div>
+</div>
