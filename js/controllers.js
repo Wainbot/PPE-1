@@ -31,7 +31,7 @@ angular.module('app.controllers', ['pascalprecht.translate', 'ngCookies'])
             firstname: 'Arnaud',
             name: 'Bastide',
             type: 'Administrateur',
-            image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSfH_ciKJdsNY2YygsfzHZ4L3AHD06-E1yfPJ4-mMB5E7LsznwlDA'
+            image: 'img/userblank.jpeg'
         },
         {
             email: 'gerant@typiak.fr',
@@ -39,7 +39,7 @@ angular.module('app.controllers', ['pascalprecht.translate', 'ngCookies'])
             firstname: 'John',
             name: 'Doe',
             type: 'Gerant',
-            image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSfH_ciKJdsNY2YygsfzHZ4L3AHD06-E1yfPJ4-mMB5E7LsznwlDA'
+            image: 'img/userblank.jpeg'
         },
         {
             email: 'adherant@typiak.fr',
@@ -47,7 +47,7 @@ angular.module('app.controllers', ['pascalprecht.translate', 'ngCookies'])
             firstname: 'John',
             name: 'Doe',
             type: 'Adherant',
-            image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSfH_ciKJdsNY2YygsfzHZ4L3AHD06-E1yfPJ4-mMB5E7LsznwlDA'
+            image: 'img/userblank.jpeg'
         },
         {
             email: 'employe@typiak.fr',
@@ -55,7 +55,7 @@ angular.module('app.controllers', ['pascalprecht.translate', 'ngCookies'])
             firstname: 'John',
             name: 'Doe',
             type: 'Employe',
-            image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSfH_ciKJdsNY2YygsfzHZ4L3AHD06-E1yfPJ4-mMB5E7LsznwlDA'
+            image: 'img/userblank.jpeg'
         },
         {
             email: 'benevole@typiak.fr',
@@ -63,7 +63,7 @@ angular.module('app.controllers', ['pascalprecht.translate', 'ngCookies'])
             firstname: 'John',
             name: 'Doe',
             type: 'Benevole',
-            image: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSfH_ciKJdsNY2YygsfzHZ4L3AHD06-E1yfPJ4-mMB5E7LsznwlDA'
+            image: 'img/userblank.jpeg'
         }
     ];
 
@@ -105,17 +105,17 @@ angular.module('app.controllers', ['pascalprecht.translate', 'ngCookies'])
     $scope.isModifiable  = false;
     $scope.modifierInfos = function() {
         ($scope.isModifiable == false) ? $scope.isModifiable = true : $scope.isModifiable = false;
-    }
+    };
 
     $scope.modifierUser  = function() {
         $scope.isModifiable  = false;
-    }
+    };
 
     $scope.addUser = function(user)
     {
         $scope.users.push(user);
         $location.path('app/form/wizarduser');
-    }
+    };
 
     $scope.user   = [ { email: "" }, { password: "" }];
     $scope.submit = function() {

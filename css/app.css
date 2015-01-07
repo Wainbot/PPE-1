@@ -1,4 +1,4 @@
-é/*
+ï¿½/*
 
 */
 html {
@@ -673,11 +673,11 @@ body {
   }
   .app-aside,
   .navbar-header {
-    width: 200px;
+    width: 220px;
   }
   .app-content,
   .app-footer {
-    margin-left: 200px;
+    margin-left: 220px;
   }
   .visible-folded {
     display: none;
@@ -699,11 +699,11 @@ body {
   }
   .app-aside-folded .app-aside,
   .app-aside-folded .navbar-header {
-    width: 60px;
+    width: 77px;
   }
   .app-aside-folded .app-content,
   .app-aside-folded .app-footer {
-    margin-left: 60px;
+    margin-left: 77px;
   }
   .app-aside-folded .app-header .navbar-brand {
     display: block;
@@ -713,13 +713,13 @@ body {
     position: fixed;
   }
   .app-aside-fixed .app-header .navbar-collapse {
-    padding-left: 200px;
+    padding-left: 220px;
   }
   .app-aside-fixed.app-aside-folded .app-header .navbar-collapse {
-    padding-left: 60px;
+    padding-left: 77px;
   }
   .app-aside-fixed.app-aside-folded .app-aside .aside-wrap {
-    width: 60px;
+    width: 77px;
   }
   .no-touch .app-aside-fixed.app-aside-folded .app-aside .aside-wrap .navi-wrap {
     width: 77px;
@@ -730,7 +730,7 @@ body {
     top: 50px;
     left: 0;
     bottom: 0;
-    width: 200px;
+    width: 220px;
   }
   .app-aside-fixed .aside-wrap .navi-wrap {
     position: relative;
@@ -753,10 +753,10 @@ body {
     border: inherit;
   }
   .bg-auto.bg-auto-left:before {
-    left: 200px;
+    left: 220px;
   }
   .app-aside-folded .bg-auto.bg-auto-left:before {
-    left: 60px;
+    left: 77px;
   }
   .bg-auto.bg-auto-right:before {
     right: 0;
@@ -921,7 +921,7 @@ body {
     left: 100%;
     top: 0 !important;
     z-index: 1050;
-    width: 200px;
+    width: 220px;
     -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
@@ -935,15 +935,15 @@ body {
     overflow: visible;
     display: block;
     width: 260px;
-    margin-left: 60px;
+    margin-left: 77px;
     position: absolute;
   }
   .app-aside-folded.app-aside-fixed .app-aside > ul.nav:before {
     content: "";
-    width: 60px;
+    width: 77px;
     height: 50px;
     position: absolute;
-    left: -60px;
+    left: -77px;
     top: 0;
   }
   .app-aside-folded.app-aside-fixed .app-aside > ul.nav a {

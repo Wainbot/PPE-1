@@ -19,18 +19,6 @@
         </a>
         <!-- dropdown -->
         <ul class="dropdown-menu animated fadeInRight w hidden-folded">
-          <!--<li class="wrapper b-b m-b-sm bg-info m-t-n-xs">-->
-            <!--<span class="arrow top hidden-folded arrow-info"></span>-->
-            <!--<div>-->
-                <!--<a href>-->
-                    <!--<span class="badge bg-danger pull-right">{{app.user.nbNotification}}</span>-->
-                    <!--Notifications-->
-                <!--</a>-->
-            <!--</div>-->
-          <!--</li>-->
-          <!--<li>-->
-              <!--<a ui-sref="app.page.profile">Profil</a>-->
-          <!--</li>-->
           <li ng-show="app.user.type != 'Administrateur'">
               <a ui-sref="app.form.infos">Mes infos</a>
           </li>
@@ -50,17 +38,12 @@
     <!-- nav -->
 
     <!-- aside footer -->
-    <div ng-show="app.user.type == 'Administrateur'" class="wrapper m-t">
+    <div ng-show="app.user.type == 'Gerant'" class="wrapper m-t">
       <div class="text-center-folded">
         <span class="pull-right pull-none-folded">60%</span>
-        <span class="hidden-folded" translate="aside.STOCK">Milestone</span>
+        <span class="hidden-folded">Stock</span>
       </div>
       <progressbar value="60" class="progress-xxs m-t-sm dk" type="info"></progressbar>
-      <!--<div class="text-center-folded">-->
-        <!--<span class="pull-right pull-none-folded">35%</span>-->
-        <!--<span class="hidden-folded" translate="aside.RELEASE">Release</span>-->
-      <!--</div>-->
-      <!--<progressbar value="35" class="progress-xxs m-t-sm dk" type="primary"></progressbar>-->
     </div>
     <!-- / aside footer -->
   </div>
