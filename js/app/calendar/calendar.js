@@ -84,10 +84,10 @@ app.controller('FullcalendarCtrl', ['$scope', function($scope) {
     };
     
     /* add custom event*/
-    $scope.addEvent = function(title, description, jj, mm, aaaa) {
+    $scope.addEvent = function(title, description, date) {
       $scope.events.push({
         title: title,
-        start: new Date(aaaa, mm - 1, jj),
+        start: new Date(date),
         className: ['b-l b-2x b-' + $scope.app.settings.nativeFirstColor],
         location: 'Chez moi',
         info: description

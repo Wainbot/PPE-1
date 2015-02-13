@@ -238,24 +238,6 @@ var app = angular.module('app', [
   ]
 )
 
-.config(['$translateProvider', function($translateProvider){
-
-  // Register a loader for the static files
-  // So, the module will search missing translation tables under the specified urls.
-  // Those urls are [prefix][langKey][suffix].
-  $translateProvider.useStaticFilesLoader({
-    prefix: 'l10n/',
-    suffix: '.json'
-  });
-
-  // Tell the module what language to use by default
-  $translateProvider.preferredLanguage('fr_FR');
-
-  // Tell the module to store the language in the local storage
-  $translateProvider.useLocalStorage();
-
-}])
-
 /**
  * jQuery plugin config use ui-jq directive , config the js and css files that required
  * key: function name of the jQuery plugin

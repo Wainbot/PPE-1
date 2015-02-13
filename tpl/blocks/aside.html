@@ -1,50 +1,5 @@
 <div class="aside-wrap">
   <div class="navi-wrap">
-    <!-- user -->
-    <div class="clearfix hidden-xs text-center hide show" id="aside-user">
-      <div class="dropdown wrapper">
-        <a ui-sref="app.404">
-          <span class="thumb-lg w-auto-folded avatar m-t-sm">
-            <img src="{{app.user.image}}" class="img-full" alt="...">
-          </span>
-        </a>
-        <a href class="dropdown-toggle hidden-folded">
-          <span class="clear">
-            <span class="block m-t-sm">
-              <strong class="font-bold text-lt">{{app.user.firstname}}&nbsp;{{app.user.name}}</strong>
-              <b class="caret"></b>
-            </span>
-            <span class="text-muted text-xs block">{{app.user.type}}</span>
-          </span>
-        </a>
-        <!-- dropdown -->
-        <ul class="dropdown-menu animated fadeInRight w hidden-folded">
-          <li ng-show="app.user.type != 'Administrateur'">
-              <a ui-sref="app.form.infos">Mes infos</a>
-          </li>
-          <li class="divider" ng-show="app.user.type != 'Administrateur'"></li>
-          <li>
-            <a ui-sref="access.signin">Se déconnecter</a>
-          </li>
-        </ul>
-        <!-- / dropdown -->
-      </div>
-      <div class="line dk hidden-folded"></div>
-    </div>
-    <!-- / user -->
-
-    <!-- nav -->
-    <nav ui-nav class="navi" ng-include="'tpl/blocks/nav.html'"></nav>
-    <!-- nav -->
-
-    <!-- aside footer -->
-    <div ng-show="app.user.type == 'Gerant'" class="wrapper m-t">
-      <div class="text-center-folded">
-        <span class="pull-right pull-none-folded">60%</span>
-        <span class="hidden-folded">Stock</span>
-      </div>
-      <progressbar value="60" class="progress-xxs m-t-sm dk" type="info"></progressbar>
-    </div>
-    <!-- / aside footer -->
+    <nav data-ui-nav class="navi" data-ng-include="'tpl/blocks/nav.html'"></nav>
   </div>
 </div>
