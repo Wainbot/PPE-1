@@ -1,52 +1,11 @@
 <ul class="nav">
   <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
-    <span>Général</span>
+    <span>Navigation</span>
   </li>
-  <li>
-    <a data-ui-sref="app.dashboard">
-      <i class="glyphicon glyphicon-stats icon text-white-dker"></i>
-      <span class="font-bold">Tableau de bord</span>
-    </a>
-  </li>
-    <li data-ng-show="app.user.type != 'Administrateur'">
-        <a data-ui-sref="app.form.infos">
-            <i class="glyphicon glyphicon-user icon text-info-dker"></i>
-            <span class="font-bold">Mes infos</span>
+    <li ng-if="menu" data-ng-repeat="menu in level.menus">
+        <a data-ui-sref="{{menu.href}}">
+            <i class="fa fa-{{menu.icone}} icon text-{{menu.color}}-dker"></i>
+            <span class="font-bold">{{menu.label}}</span>
         </a>
     </li>
-    <li data-ng-show="app.user.type == 'Utilisateur' || app.user.type == 'Administrateur'">
-        <a data-ui-sref="app.404">
-            <b class="badge bg-danger pull-right">{{app.user.nbCommande}}</b>
-            <i class="glyphicon glyphicon-shopping-cart icon text-success-dker"></i>
-            <span class="font-bold">Mes prêts</span>
-        </a>
-    </li>
-
-  <li data-ng-show="app.user.type == 'Gerant' || app.user.type == 'Employe' || app.user.type == 'Benevole' || app.user.type == 'Administrateur'">
-    <a data-ui-sref="app.calendar">
-      <i class="glyphicon glyphicon-calendar icon text-primary-dker"></i>
-      <span class="font-bold">Agenda</span>
-    </a>
-  </li>
-
-    <li data-ng-show="app.user.type == 'Administrateur' || app.user.type == 'Gerant'">
-        <a data-ui-sref="app.table.users">
-            <!--<b class="badge bg-danger dk pull-right">63</b>-->
-            <i class="glyphicon glyphicon-user icon text-success-lter"></i>
-            <span class="font-bold">Utilisateurs</span>
-        </a>
-    </li>
-    <li data-ng-show="app.user.type == 'Gerant' || app.user.type == 'Administrateur'">
-        <a data-ui-sref="app.404">
-            <i class="fa fa-cubes icon text-danger-lter"></i>
-            <span class="font-bold">Matériels</span>
-        </a>
-    </li>
-    <li>
-        <a data-ui-sref="app.404">
-            <i class="fa fa-building icon text-warning-lter"></i>
-            <span class="font-bold">Salles</span>
-        </a>
-    </li>
-    <li class="line dk"></li>
 </ul>

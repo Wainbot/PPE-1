@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Tableau de bord</h1>
-          <small class="text-muted">Bienvenue {{app.user.firstname}} !</small>
+          <small class="text-muted">Bienvenue {{user.firstname}} !</small>
         </div>
       </div>
     </div>
@@ -13,7 +13,7 @@
         <div class="col-md-12">
           <div class="row row-sm text-center">
             <div class="col-xs-6">
-              <div class="panel padder-v {{app.settings.navbarAsideColor}} item">
+              <div class="panel padder-v bg-primary item">
                 <div class="h1 text-white font-thin h1">???</div>
                 <span class="text-muted text-xs">??????</span>
                 <div class="top text-right">
@@ -22,7 +22,7 @@
             </div>
             <div class="col-xs-6">
               <div class="block panel padder-v bg-light dk item">
-                <span class="text-{{app.settings.nativeFirstColor}}-dk font-thin h1 block">???</span>
+                <span class="text-dark-dk font-thin h1 block">???</span>
                 <span class="text-muted text-xs">??????</span>
                 <span class="top text-right">
                 </span>
@@ -30,14 +30,14 @@
             </div>
             <div class="col-xs-6">
               <div class="block panel padder-v bg-light dk item">
-                <span class="text-{{app.settings.nativeFirstColor}}-dk font-thin h1 block">???</span>
+                <span class="text-dark-dk font-thin h1 block">???</span>
                 <span class="text-muted text-xs">??????</span>
                 <span class="top text-right">
                 </span>
               </div>
             </div>
             <div class="col-xs-6">
-              <div class="panel padder-v {{app.settings.navbarAsideColor}} item">
+              <div class="panel padder-v bg-primary item">
                 <div class="text-white font-thin h1">???</div>
                 <span class="text-muted text-xs">??????</span>
                 <div class="top text-right">
@@ -45,12 +45,12 @@
               </div>
             </div>
             <div class="col-xs-12 m-b-md">
-              <div class="r bg-light dker item hbox no-border">
+              <div class="r bg-dark dker item hbox no-border">
                 <div class="col w-xs v-middle hidden-md">
                   <div data-ng-init="data1=[60,40]" data-ui-jq="sparkline" data-ui-options="{{data1}}, {type:'pie', height:40, sliceColors:['{{app.settings.secondColor}}','#fff']}" class="sparkline inline"></div>
                 </div>
                 <div class="col dk padder-v r-r">
-                  <div class="text-dark-dk font-thin h1"><span>???</span></div>
+                  <div class="text-white-dk font-thin h1"><span>???</span></div>
                   <span class="text-muted text-xs">??????</span>
                 </div>
               </div>
