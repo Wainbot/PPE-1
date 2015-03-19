@@ -4,54 +4,50 @@
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Tableau de bord</h1>
-          <small class="text-muted">Bienvenue {{user.firstname}} !</small>
         </div>
       </div>
     </div>
-    <div class="wrapper-md" data-ng-controller="FlotChartDemoCtrl">
+    <div class="wrapper-md">
       <div class="row">
         <div class="col-md-12">
           <div class="row row-sm text-center">
             <div class="col-xs-6">
-              <div class="panel padder-v bg-primary item">
-                <div class="h1 text-white font-thin h1">???</div>
-                <span class="text-muted text-xs">??????</span>
+              <div class="panel padder-v bg-dark-perso item">
+                <div class="h1 text-white font-thin h1">{{nbUsers}}</div>
+                <span class="text-muted text-xs"><a data-ui-sref="app.table.users">Utilisateurs</a></span>
                 <div class="top text-right">
                 </div>
               </div>
             </div>
             <div class="col-xs-6">
               <div class="block panel padder-v bg-light dk item">
-                <span class="text-dark-dk font-thin h1 block">???</span>
-                <span class="text-muted text-xs">??????</span>
+                <span class="text-dark-dk font-thin h1 block">{{nbLocations}}</span>
+                <span class="text-muted text-xs">Location<span ng-if="nbLocations > 1">(s)</span> en cours</span>
                 <span class="top text-right">
                 </span>
               </div>
             </div>
             <div class="col-xs-6">
               <div class="block panel padder-v bg-light dk item">
-                <span class="text-dark-dk font-thin h1 block">???</span>
-                <span class="text-muted text-xs">??????</span>
+                <span class="text-dark-dk font-thin h1 block">{{nbRooms}}</span>
+                <span class="text-muted text-xs"><a data-ui-sref="app.salles">Salles</a></span>
                 <span class="top text-right">
                 </span>
               </div>
             </div>
             <div class="col-xs-6">
-              <div class="panel padder-v bg-primary item">
-                <div class="text-white font-thin h1">???</div>
-                <span class="text-muted text-xs">??????</span>
+              <div class="panel padder-v bg-dark-perso item">
+                <div class="text-white font-thin h1">{{nbMaterials}}</div>
+                <span class="text-muted text-xs"><a data-ui-sref="app.materiels">Matériels</a></span>
                 <div class="top text-right">
                 </div>
               </div>
             </div>
             <div class="col-xs-12 m-b-md">
-              <div class="r bg-dark dker item hbox no-border">
-                <div class="col w-xs v-middle hidden-md">
-                  <div data-ng-init="data1=[60,40]" data-ui-jq="sparkline" data-ui-options="{{data1}}, {type:'pie', height:40, sliceColors:['{{app.settings.secondColor}}','#fff']}" class="sparkline inline"></div>
-                </div>
-                <div class="col dk padder-v r-r">
-                  <div class="text-white-dk font-thin h1"><span>???</span></div>
-                  <span class="text-muted text-xs">??????</span>
+              <div class="r bg-black item hbox no-border">
+                <div class="col padder-v r-r">
+                  <div class="text-white-dk font-thin h1"><span>Vous avez {{nbLocationsUser}} location<span ng-if="nbLocationsUser > 1">(s)</span> en cours</span></div>
+                  <span class="text-muted text-xs"><a data-ui-sref="app.calendar">Voir l'agenda</a></span>
                 </div>
               </div>
             </div>
