@@ -5,28 +5,37 @@
 <div class="wrapper-md">
   <div class="panel panel-default">
     <div class="table-responsive">
-      <table ui-jq="dataTable" class="table table-striped m-b-none">
-        <thead>
+      <table class="table table-striped m-b-none">
+        <thead class="bg-dark-perso text-white">
           <tr>
             <th  style="text-align: center; width:20%">Nom</th>
-            <th  style="text-align: center; width:25%">Prénom</th>
             <th  style="text-align: center; width:25%">Email</th>
-            <!--<th  style="width:15%">Age</th>-->
             <th  style="text-align: center; width:25%">Type</th>
             <th  style="text-align: center; width:5%">Editer</th>
           </tr>
         </thead>
         <tbody>
             <tr style="text-align: center;" ng-repeat="user in users">
-                <th  style="text-align: center; font-weight: lighter; width:20%">{{user.name}}</th>
-                <th  style="text-align: center; font-weight: lighter; width:25%">{{user.firstname}}</th>
-                <th  style="text-align: center; font-weight: lighter; width:25%">{{user.email}}</th>
-                <!--<th  style="width:15%">{{user.age || '-'}}</th>-->
-                <th  style="text-align: center; font-weight: lighter; width:15%">{{user.type}}</th>
-                <th  style="text-align: center; font-weight: lighter; width:5%"><a href=""><li class="fa fa-edit"></li></a></th>
+                <th style="text-align: center; font-weight: lighter; width:20%">{{user.name}}</th>
+                <th style="text-align: center; font-weight: lighter; width:25%">{{user.email}}</th>
+                <th ng-if="user.level == 2" style="text-align: center; font-weight: lighter; width:15%">Client</th>
+                <th ng-if="user.level == 1" style="text-align: center; font-weight: lighter; width:15%">Employé</th>
+                <th ng-if="user.level == 0" style="text-align: center; font-weight: lighter; width:15%">Administrateur</th>
+                <th style="text-align: center; font-weight: lighter; width:5%">
+                    <a data-ui-sref="app.infos({id:user.id})">
+                        <li class="fa fa-edit text-primary"></li>
+                    </a>
+                    <a ng-click="open('xs', user);">
+                        <li class="fa fa-times text-danger"></li>
+                    </a>
+                </th>
             </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
+<script type="text/ng-template" id="modal_confirmation_delete_user.html">
+    <div ng-include="'tpl/modal_confirmation_delete_user.html'"></div>
+</script>

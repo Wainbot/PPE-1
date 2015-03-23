@@ -14,58 +14,8 @@
            <input ng-model="user.password" type="password" placeholder="Mot de passe" class="form-control no-border" required>
         </div>
       </div>
-      <button type="submit" ng-disabled="signin.$invalid" class="btn btn-lg btn-primary btn-block" disabled ng-bind-html="btnConnect"></button>
-      <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd">Mot de passe oublié ?</a></div>
+      <button type="submit" ng-disabled="signin.$invalid" class="btn btn-lg btn-primary btn-block" disabled data-ng-bind-html="btnConnect"></button>
+      <div class="text-center m-t m-b"><a data-ui-sref="access.forgotpwd">Mot de passe oublié ?</a></div>
     </form>
   </div>
-
-    <div class="text-center" ng-include="'tpl/blocks/page_footer.html'"></div>
-</div>
-<br />
-<div class="row" style="margin: auto;max-width: 600px;">
-    <div class="col-sm-12">
-        <div class="panel panel-default">
-            <table class="table table-striped m-b-none">
-                <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Email</th>
-                    <th>Mot de passe</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Administrateur</td>
-                    <td>jeremyfroment@typiak.fr</td>
-                    <td>password</td>
-                </tr>
-                <tr>
-                    <td>Administrateur</td>
-                    <td>arnaudbastide@typiak.fr</td>
-                    <td>password</td>
-                </tr>
-                <tr>
-                    <td>Gérant</td>
-                    <td>gerant@typiak.fr</td>
-                    <td>password</td>
-                </tr>
-                <tr>
-                    <td>Adhérant</td>
-                    <td>adherant@typiak.fr</td>
-                    <td>password</td>
-                </tr>
-                <tr>
-                    <td>Employé</td>
-                    <td>employe@typiak.fr</td>
-                    <td>password</td>
-                </tr>
-                <tr>
-                    <td>Benevole</td>
-                    <td>benevole@typiak.fr</td>
-                    <td>password</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 </div>

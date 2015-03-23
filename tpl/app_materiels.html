@@ -1,0 +1,38 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+    <div class="col">
+        <div class="bg-light lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h1 class="m-n font-thin h3 text-black">Matériels</h1>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper-md">
+            <div ng-if="materials" class="row">
+                <div class="col-md-12">
+                    <div class="row row-sm text-center">
+                        <div ng-repeat="material in materials" class="col-md-4 col-xs-12 text-right">
+                            <div class="panel padder-v bg-light dk item text-center">
+                                <div class="h3 text-dark font-thin">{{material.name}}</div>
+                                <span class="text-muted text-xs">Quantit&eacute; restante: {{material.quantity_restante}}<br /></span>
+                                <span class="text-muted text-xs">{{material.description || '-'}}<br /></span>
+                                <br />
+                                <span data-ng-if="!material.panier" class="text-center btn btn-success btn-xs" data-ng-click="open('xs', material);">
+                                    Ajouter au panier
+                                </span>
+                                <span data-ng-if="material.panier" class="text-center btn btn-danger btn-xs" data-ng-click="deletePanier(material);">
+                                    Retirer du panier
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1 class="text-center text-muted" ng-if="!materials">Le panier est vide</h1>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="modal_add_material.html">
+    <div ng-include="'tpl/modal_add_material.html'"></div>
+</script>

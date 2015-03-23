@@ -1,0 +1,44 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+    <div class="col">
+        <div class="bg-light lter b-b wrapper-md">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <h1 class="m-n font-thin h3 text-black">Panier</h1>
+                </div>
+                <div ng-if="panier" class="col-sm-6 col-xs-12">
+                    <a class="btn btn-primary pull-right" href="api/commande/validate" data-ng-click="valideCommande();" ng-bind-html="btnValider"></a>
+                </div>
+            </div>
+        </div>
+        <div ng-show="commandeSuccess" class="alert alert-success alert-dismissable">
+            <div><span class="text-center">Réservation effectuée avec succés !</span></div>
+        </div>
+        <div class="wrapper-md">
+            <div ng-if="panier" class="panel panel-default">
+                <div class="table-responsive">
+                    <table class="table table-striped m-b-none">
+                        <thead class="bg-dark-perso text-white">
+                        <tr>
+                            <th  style="text-align: center; width:20%">Nom</th>
+                            <th  style="text-align: center; width:25%">Description</th>
+                            <th  style="text-align: center; width:25%">Quantit&eacute;</th>
+                            <th  style="text-align: center; width:25%">Date location</th>
+                            <th  style="text-align: center; width:5%">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr style="text-align: center;" ng-repeat="item in panier track by $index">
+                            <th  style="text-align: center; font-weight: lighter; width:20%">{{item.name}}</th>
+                            <th  style="text-align: center; font-weight: lighter; width:15%">{{item.description || '-'}}</th>
+                            <th  style="text-align: center; font-weight: lighter; width:15%">{{item.quantity}}</th>
+                            <th  style="text-align: center; font-weight: lighter; width:15%">Du {{item.date_begin}} au {{item.date_back}}</th>
+                            <th  style="text-align: center; font-weight: lighter; width:5%"><a ng-click="deletePanier(item);"><li class="fa fa-times text-danger"></li></a></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h1 class="text-center text-muted" ng-if="!panier">Le panier est vide</h1>
+        </div>
+    </div>
+</div>

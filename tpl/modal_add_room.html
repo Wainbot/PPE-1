@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h3 class="modal-title text-center">Ajout d'une salle au panier</h3>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title text-center">Date début de location</h1>
+                </div>
+                <div class="panel-body">
+                    <datepicker class="col-md-12" data-min-date="minDate" ng-model="dateBegin"></datepicker>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title text-center">Date fin de location</h1>
+                </div>
+                <div class="panel-body">
+                    <datepicker class="col-md-12" data-min-date="dateBegin" ng-model="dateBack"></datepicker>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" data-ng-click="cancel();">Annuler</button>
+    <button class="btn btn-primary" data-ng-click="addPanier(dateBegin, dateBack); ok();">Ajouter au panier</button>
+</div>

@@ -1,64 +1,52 @@
-      <div class="navbar-header {{app.settings.navbarHeaderColor}}">
+      <div class="navbar-header bg-black">
         <button class="pull-right visible-xs dk" ui-toggle-class="show" data-target=".navbar-collapse">
           <i class="glyphicon glyphicon-cog"></i>
         </button>
         <button class="pull-right visible-xs" ui-toggle-class="show" data-target=".app-aside" ui-scroll="app">
           <i class="glyphicon glyphicon-align-justify"></i>
         </button>
-        <a ui-sref="app.dashboard" ui-toggle-class="show" data-target=".app-aside" class="navbar-brand text-lt">
+        <span ui-toggle-class="show" data-target=".app-aside" class="navbar-brand text-lt">
             <img src="img/typiak.png" alt="typiak">
             <span class="hidden-folded font-thin">{{app.name}}</span>
-        </a>
+        </span>
       </div>
 
-      <div class="collapse navbar-collapse box-shadow {{app.settings.navbarCollapseColor}}">
-        <!-- buttons -->
+      <div class="collapse navbar-collapse box-shadow bg-black">
         <div class="nav navbar-nav m-l-sm hidden-xs">
-          <a href class="btn no-shadow navbar-btn" ng-click="app.settings.asideFolded = !app.settings.asideFolded">
+          <a href class="btn no-shadow navbar-btn" id="collapseBTN" data-ng-click="app.settings.asideFolded = !app.settings.asideFolded">
             <i class="fa {{app.settings.asideFolded ? 'fa-indent' : 'fa-dedent'}} fa-fw"></i>
           </a>
         </div>
 
-        <ul class="nav navbar-nav hidden-sm">
+        <ul  ng-show="user.level != 2" class="nav navbar-nav">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
+              <i class="visible-xs-inline-block"></i>
               <span>Nouveau</span> <span class="caret"></span>
             </a>
-            <ul ng-show="app.user.type == 'Administrateur'" class="dropdown-menu" role="menu">
-              <li>
-                  <a ui-sref="app.form.newuser">Utilisateur</a>
-              </li>
-              <li>
-                  <a ui-sref="app.404">Prêt</a>
-              </li>
-            </ul>
-              <ul ng-show="app.user.type != 'Administrateur' && app.user.type != 'Gerant'" class="dropdown-menu" role="menu">
-                  <li><a ui-sref="app.404">Frais</a></li>
-              </ul>
-              <ul ng-show="app.user.type == 'Gerant'" class="dropdown-menu" role="menu">
+              <ul class="dropdown-menu" role="menu">
                   <li><a ui-sref="app.form.newuser">Utilisateur</a></li>
-                  <li><a ui-sref="app.404">Prêt</a></li>
-                  <li><a ui-sref="app.404">Frais</a></li>
               </ul>
           </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li class="hidden-xs">
+          <li ng-if="user.level == 0">
             <a ui-fullscreen></a>
           </li>
+            <li>
+                <a data-ui-sref="app.panier">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span ng-if="panierLength > 0" class="badge badge-sm up bg-danger pull-right-xs">{{panierLength}}</span>
+                </a>
+            </li>
           <li class="dropdown">
             <a href class="dropdown-toggle clear" data-toggle="dropdown">
-              <span class="hidden-sm hidden-md">{{user.firstname}}&nbsp;{{user.name}}</span> <b class="caret"></b>
+              <span>{{user.name}}</span> <b class="caret"></b>
             </a>
               <ul class="dropdown-menu animated fadeInRight w hidden-folded">
-                  <li ng-show="app.user.type != 'Administrateur'">
-                      <a ui-sref="app.form.infos">Mes infos</a>
-                  </li>
-                  <li class="divider" ng-show="app.user.type != 'Administrateur'"></li>
                   <li>
-                      <a ng-click="deconnection()" ui-sref="access.signin">Se déconnecter</a>
+                      <a data-ng-click="deconnexion()" ui-sref="access.signin">Se déconnecter</a>
                   </li>
               </ul>
           </li>

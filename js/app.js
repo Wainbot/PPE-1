@@ -35,11 +35,33 @@ var app = angular.module('app', [
                         .state('app', {
                             abstract: true,
                             url: '/app',
-                            templateUrl: 'tpl/app.html'
+                            templateUrl: 'tpl/app.html',
+                            controller: 'AppController'
                         })
                         .state('app.dashboard', {
                             url: '/dashboard',
-                            templateUrl: 'tpl/app_dashboard.html'
+                            templateUrl: 'tpl/app_dashboard.html',
+                            controller: 'DashboardController'
+                        })
+                        .state('app.panier', {
+                            url: '/panier',
+                            templateUrl: 'tpl/app_panier.html',
+                            controller: 'PanierController'
+                        })
+                        .state('app.salles', {
+                            url: '/salles',
+                            templateUrl: 'tpl/app_salles.html',
+                            controller: 'SallesController'
+                        })
+                        .state('app.materiels', {
+                            url: '/materiels',
+                            templateUrl: 'tpl/app_materiels.html',
+                            controller: 'MaterielsController'
+                        })
+                        .state('app.infos', {
+                            url: '/infos/:id',
+                            templateUrl: 'tpl/form_infos.html',
+                            controller: 'InfosUserController'
                         })
                         .state('app.table', {
                             url: '/table',
@@ -47,7 +69,8 @@ var app = angular.module('app', [
                         })
                         .state('app.table.users', {
                             url: '/users',
-                            templateUrl: 'tpl/table_users.html'
+                            templateUrl: 'tpl/table_users.html',
+                            controller: 'UsersController'
                         })
                         .state('app.form', {
                             url: '/form',
@@ -55,11 +78,8 @@ var app = angular.module('app', [
                         })
                         .state('app.form.newuser', {
                             url: '/newuser',
-                            templateUrl: 'tpl/form_new_user.html'
-                        })
-                        .state('app.form.infos', {
-                            url: '/infos',
-                            templateUrl: 'tpl/form_infos.html'
+                            templateUrl: 'tpl/form_new_user.html',
+                            controller: 'NewUserController'
                         })
                         .state('app.form.wizardcmd', {
                             url: '/wizardcmd',
@@ -75,7 +95,8 @@ var app = angular.module('app', [
                         })
                         .state('access.signin', {
                             url: '/signin',
-                            templateUrl: 'tpl/page_signin.html'
+                            templateUrl: 'tpl/page_signin.html',
+                            controller: 'SigninController'
                         })
                         .state('access.signup', {
                             url: '/signup',
@@ -92,7 +113,6 @@ var app = angular.module('app', [
                         .state('app.calendar', {
                             url: '/calendar',
                             templateUrl: 'tpl/app_calendar.html',
-                            // use resolve to load other dependences
                             resolve: {
                                 deps: ['uiLoad',
                                     function (uiLoad) {
@@ -102,7 +122,8 @@ var app = angular.module('app', [
                                             'js/app/calendar/ui-calendar.js',
                                             'js/app/calendar/calendar.js']);
                                     }]
-                            }
+                            },
+                            controller: 'AgendaController'
                         })
                 }
             ]

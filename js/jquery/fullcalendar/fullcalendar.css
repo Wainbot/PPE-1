@@ -594,7 +594,7 @@ table.fc-border-separate {
 .fc-header {
   height: 50px;
   color: #fff;
-  background-color: #1c2b36;
+  background-color: rgba(44, 62, 80, 1);
   border-radius: 3px 3px 0 0;
 }
 

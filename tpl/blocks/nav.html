@@ -2,7 +2,7 @@
   <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
     <span>Navigation</span>
   </li>
-    <li ng-if="menu" data-ng-repeat="menu in level.menus">
+    <li ng-if="menu" data-ng-repeat="menu in menus">
         <a data-ui-sref="{{menu.href}}">
             <i class="fa fa-{{menu.icone}} icon text-{{menu.color}}-dker"></i>
             <span class="font-bold">{{menu.label}}</span>

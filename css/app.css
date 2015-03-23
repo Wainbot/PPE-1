@@ -15,6 +15,9 @@ body {
 *:focus {
   outline: 0 !important;
 }
+#collapseBTN:focus {
+  color: #FFF;
+}
 .h1,
 .h2,
 .h3,
@@ -2133,6 +2136,10 @@ fieldset[disabled] .i-checks input + i:before {
   background-color: #3a3f51;
   color: #9ea4b9;
 }
+.bg-dark-perso {
+  background-color: rgba(44, 62, 80, 1);
+  color: #9ea4b9;
+}
 .bg-dark.lt,
 .bg-dark .lt {
   background-color: #474c5e;
@@ -2156,7 +2163,13 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-dark a {
   color: #bbc0cf;
 }
+.bg-dark-perso a {
+  color: #bbc0cf;
+}
 .bg-dark a:hover {
+  color: #ffffff;
+}
+.bg-dark-perso a:hover {
   color: #ffffff;
 }
 .bg-dark a.list-group-item:hover,
@@ -2166,8 +2179,14 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-dark .nav > li:hover > a,
 .bg-dark .nav > li:focus > a,
 .bg-dark .nav > li.active > a {
-  color: #ffffff;
+  color: #9ea4b9;
   background-color: #2e3344;
+}
+.bg-dark-perso .nav > li:hover > a,
+.bg-dark-perso .nav > li:focus > a,
+.bg-dark-perso .nav > li.active > a {
+  color: #ffffff;
+  background-color: rgba(52, 73, 94, 1);
 }
 .bg-dark .nav > li > a {
   color: #adb2c4;

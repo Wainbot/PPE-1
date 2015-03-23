@@ -1,14 +1,14 @@
 <div>
     <div class="wrapper-md bg-light b-b">
-        <button type="button" class="btn btn-default btn-addon pull-right m-t-n-xs" ng-click="modifierInfos(); showSuccess = false;">
-            <i class="fa fa-edit"></i> Modifier mes informations
+        <button ng-if="!isModifiable" type="button" class="btn btn-default btn-addon pull-right m-t-n-xs" ng-click="modifierInfos(); showSuccess = false;">
+            <i class="fa fa-edit"></i> Modifier les informations
         </button>
-        <h1 class="m-n font-thin h3">Mes infos</h1>
+        <h1 class="m-n font-thin h3">Informations utilisateur</h1>
         
     </div>
     <div ng-show="showSuccess" class="alert alert-success alert-dismissable">
-            <div><span>Modification(s) enregistrée(s) avec succès !</span></div>
-        </div>
+        <div><span>Modification(s) enregistrée(s) avec succès !</span></div>
+    </div>
     <div class="hbox hbox-auto-xs hbox-auto-sm">
         <form name="forma" class="form-horizontal form-validation">
             <div class="panel panel-default">
@@ -16,33 +16,29 @@
                     <div class="form-group">
                         <label class="col-sm-1 control-label">Email</label>
                         <div class="col-sm-11">
-                            <input type="email" class="form-control" placeholder="Email" ng-model="user.email" required ng-disabled="!isModifiable">
+                            <input type="email" class="form-control" placeholder="Email" ng-model="userModify.email" required ng-disabled="!isModifiable">
                         </div>
                     </div>
                     <div class="line line-dashed b-b line-lg pull-in"></div>
                     <div class="form-group">
                         <label class="col-sm-1 control-label">Nom</label>
                         <div class="col-sm-11">
-                            <input type="text" class="form-control" placeholder="Nom" ng-model="user.name" required ng-disabled="!isModifiable">
-                        </div>
-                    </div>
-                    <div class="line line-dashed b-b line-lg pull-in"></div>
-                    <div class="form-group">
-                        <label class="col-sm-1 control-label">Prénom</label>
-                        <div class="col-sm-11">
-                            <input type="text" class="form-control" placeholder="Prénom" ng-model="user.firstname" required ng-disabled="!isModifiable">
+                            <input type="text" class="form-control" placeholder="Nom" ng-model="userModify.name" required ng-disabled="!isModifiable">
                         </div>
                     </div>
                     <div class="line line-dashed b-b line-lg pull-in"></div>
                     <div class="form-group">
                         <label class="col-sm-1 control-label">Type</label>
                         <div class="col-sm-11">
-                            <input type="text" class="form-control" placeholder="Type" ng-model="level.name" required disabled>
+                            <select class="form-control" ng-model="userModify.level" required ng-disabled="!isModifiable">
+                                <option ng-repeat="level in levels" value="{{level.id}}">{{level.label}}</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <footer class="panel-footer text-right bg-light lter">
-                    <button ng-show="isModifiable" type="submit" class="btn {{app.settings.navbarCollapseColor}}" ng-click="modifierUser(); showSuccess = true;">Enregistrer</button>
+                    <button ng-show="isModifiable" class="btn btn-danger" ng-click="modifierInfos();">Annuler</button>
+                    <button ng-show="isModifiable" type="submit" class="btn btn-success" ng-click="modifierUser();">Enregistrer</button>
                 </footer>
             </div>
         </form>
