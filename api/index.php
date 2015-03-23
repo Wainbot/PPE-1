@@ -16,6 +16,10 @@ session_start();
 $app = new \Slim\Slim();
 $app->response()->header('Content-Type', 'application/json');
 
+
+$app->get('/test/:password', function($password) use ($app) {
+    echo sha1($password);
+});
 // ROUTES UTILISATEURS
 $app->get('/users', function() use ($app) {
     echo json_encode(UsersModele::getAllUsers());
