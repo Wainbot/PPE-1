@@ -1,9 +1,22 @@
 <?php
 
+/**
+ * Class MaterialsModele
+ */
 class MaterialsModele
 {
+    /**
+     * Table visée
+     *
+     * @var string
+     */
     private static $table = 'mrbs_materials';
 
+    /**
+     * Retourne tous les matériels
+     *
+     * @return array
+     */
     public static function getAllMaterials()
     {
         global $QS;
@@ -15,6 +28,11 @@ class MaterialsModele
         return $result;
     }
 
+    /**
+     * Retourne tous les matériels loués
+     *
+     * @return array
+     */
     public static function getMaterialsLocation()
     {
         global $QS;
@@ -26,6 +44,11 @@ class MaterialsModele
         return $result;
     }
 
+    /**
+     * Retourne tous les matériels non loués
+     *
+     * @return array
+     */
     public static function getMaterialsNotLocation()
     {
         global $QS;
@@ -37,6 +60,12 @@ class MaterialsModele
         return $result;
     }
 
+    /**
+     * Retourne le matériel correspondant à l'id passé en paramètre
+     *
+     * @param $id
+     * @return array
+     */
     public static function getMaterialById($id)
     {
         global $QS;
@@ -48,6 +77,12 @@ class MaterialsModele
         return $result;
     }
 
+    /**
+     * Retourne les matériels loués par l'utilisateur passé en paramètre
+     *
+     * @param $id
+     * @return array
+     */
     public static function getMaterialsLocationByUser($id)
     {
         global $QS;

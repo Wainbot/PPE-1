@@ -81,10 +81,6 @@ var app = angular.module('app', [
                             templateUrl: 'tpl/form_new_user.html',
                             controller: 'NewUserController'
                         })
-                        .state('app.form.wizardcmd', {
-                            url: '/wizardcmd',
-                            templateUrl: 'tpl/form_wizard_cmd.html'
-                        })
                         .state('app.page', {
                             url: '/page',
                             template: '<div ui-view class="fade-in-down"></div>'
@@ -97,10 +93,6 @@ var app = angular.module('app', [
                             url: '/signin',
                             templateUrl: 'tpl/page_signin.html',
                             controller: 'SigninController'
-                        })
-                        .state('access.signup', {
-                            url: '/signup',
-                            templateUrl: 'tpl/page_signup.html'
                         })
                         .state('access.forgotpwd', {
                             url: '/forgotpwd',

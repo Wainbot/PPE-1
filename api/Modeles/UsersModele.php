@@ -1,9 +1,22 @@
 <?php
 
+/**
+ * Class UsersModele
+ */
 class UsersModele
 {
+    /**
+     * Table visée
+     *
+     * @var string
+     */
     private static $table = 'mrbs_users';
 
+    /**
+     * Retourne tous les utilisateurs
+     *
+     * @return array
+     */
     public static function getAllUsers()
     {
         global $QS;
@@ -15,6 +28,12 @@ class UsersModele
         return $result;
     }
 
+    /**
+     * Retourne l'utilisateur correspondant à l'id passé en paramètre
+     *
+     * @param $id
+     * @return array
+     */
     public static function getUserById($id)
     {
         global $QS;
@@ -26,6 +45,12 @@ class UsersModele
         return $result;
     }
 
+    /**
+     * Retourne tous les menus correspondants au niveau de droit passé en paramètre
+     *
+     * @param $id
+     * @return array
+     */
     public static function getMenusByLevel($id)
     {
         global $QS;
@@ -47,6 +72,12 @@ class UsersModele
         return $result;
     }
 
+    /**
+     * Retourne le niveau de droit correspondant à l'id passé en paramètre
+     *
+     * @param $id
+     * @return mixed
+     */
     public static function getLevelById($id)
     {
         global $QS;
@@ -58,6 +89,11 @@ class UsersModele
         return $result;
     }
 
+    /**
+     * Retourne tous les niveaux de droit
+     *
+     * @return array
+     */
     public static function getLevels()
     {
         global $QS;
@@ -69,6 +105,12 @@ class UsersModele
         return $result;
     }
 
+    /**
+     * Modifie les informations d'un utilisateur par son id et par les infos le correspondant passés en paramètre
+     *
+     * @param $id
+     * @param $infos
+     */
     public static function setUser($id, $infos)
     {
         global $QS;
@@ -76,6 +118,11 @@ class UsersModele
         $QS->query("UPDATE mrbs_users SET name = '$infos->name', email = '$infos->email', level = $infos->level WHERE id = $id");
     }
 
+    /**
+     * Supprime l'utilisateur correspondant à l'id passé en paramètre
+     *
+     * @param $id
+     */
     public static function deleteUser($id)
     {
         global $QS;
@@ -83,6 +130,11 @@ class UsersModele
         $QS->query("DELETE FROM mrbs_users WHERE id = $id");
     }
 
+    /**
+     * Ajoute l'utilisateur passé en paramètre dans la base de données
+     *
+     * @param $user
+     */
     public static function insertUser($user)
     {
         global $QS;

@@ -1,9 +1,22 @@
 <?php
 
+/**
+ * Class LocationsModele
+ */
 class LocationsModele
 {
+    /**
+     * Table visée
+     *
+     * @var string
+     */
     private static $table = 'mrbs_location';
 
+    /**
+     * Retourne toutes les locations
+     *
+     * @return array
+     */
     public static function getAllLocations()
     {
         global $QS;
@@ -19,6 +32,12 @@ class LocationsModele
         return $result;
     }
 
+    /**
+     * Retourne les locations par utilisateur
+     *
+     * @param $id
+     * @return array
+     */
     public static function getLocationsByUser($id)
     {
         global $QS;
@@ -34,6 +53,11 @@ class LocationsModele
         return $result;
     }
 
+    /**
+     * Ajoute la location passée en paramètre dans la base de données
+     *
+     * @param $item
+     */
     public static function insertLocation($item)
     {
         global $QS;
