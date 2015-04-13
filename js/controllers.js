@@ -1,6 +1,13 @@
 'use strict';
 
+/**
+ * Module de l'application
+ */
 angular.module('app.controllers', ['ngCookies'])
+
+    /**
+     * Controller global de l'application
+     */
     .controller('AppCtrl', ['$scope', '$localStorage', function ($scope, $localStorage) {
         var isTouchDevice = !!('ontouchstart' in window);
         var isIE = !!navigator.userAgent.match(/MSIE/i);
@@ -37,6 +44,9 @@ angular.module('app.controllers', ['ngCookies'])
         }, true);
     }])
 
+    /**
+     * Controller global de l'application
+     */
     .controller('AppController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope.panier = [];
         $http({method: 'GET', url: 'api/currentUser'})
@@ -69,6 +79,9 @@ angular.module('app.controllers', ['ngCookies'])
         };
     }])
 
+    /**
+     * Controller du tableau de bord
+     */
     .controller('DashboardController', ['$scope', '$http', function ($scope, $http) {
         $http({method: 'GET', url: 'api/currentUser'})
             .success(function(data) {
@@ -104,6 +117,9 @@ angular.module('app.controllers', ['ngCookies'])
 
     }])
 
+    /**
+     * Controller de la page des utilisateurs
+     */
     .controller('UsersController', ['$scope', '$http', '$modal', '$log', function ($scope, $http, $modal) {
         $http({method: 'GET', url: 'api/users'})
             .success(function(data) {
@@ -121,7 +137,6 @@ angular.module('app.controllers', ['ngCookies'])
             };
 
             $scope.ok = function () {
-                console.log(user);
                 $modalInstance.close();
                 $scope.deleteUser(user);
             };
@@ -149,6 +164,9 @@ angular.module('app.controllers', ['ngCookies'])
         };
     }])
 
+    /**
+     * Controller de la page des salles
+     */
     .controller('SallesController', ['$scope', '$http', '$modal', function ($scope, $http, $modal) {
         $http({method: 'GET', url: 'api/notlocation/rooms'})
             .success(function(dataRooms) {
@@ -226,6 +244,9 @@ angular.module('app.controllers', ['ngCookies'])
         };
     }])
 
+    /**
+     * Controller de la page des matériels
+     */
     .controller('MaterielsController', ['$scope', '$http', '$modal', function ($scope, $http, $modal) {
         $http({method: 'GET', url: 'api/notlocation/materials'})
             .success(function(dataMaterials) {
@@ -320,6 +341,9 @@ angular.module('app.controllers', ['ngCookies'])
         };
     }])
 
+    /**
+     * Controller du panier
+     */
     .controller('PanierController', ['$scope', '$http', '$location', '$timeout', function ($scope, $http, $location, $timeout) {
         $scope.commandeSuccess = false;
         $scope.btnValider      = 'Valider la réservation';
@@ -358,6 +382,9 @@ angular.module('app.controllers', ['ngCookies'])
         }
     }])
 
+    /**
+     * Controller de la page de modification d'un utilisateur
+     */
     .controller('InfosUserController', ['$scope', '$http', '$stateParams', function ($scope, $http, $stateParams) {
         $scope.userModify   = [];
         $scope.levels       = [];
@@ -399,6 +426,9 @@ angular.module('app.controllers', ['ngCookies'])
         };
     }])
 
+    /**
+     * Controller de la page de création d'un utilisateur
+     */
     .controller('NewUserController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope.addUser = function(user) {
             if (user) {
@@ -408,6 +438,9 @@ angular.module('app.controllers', ['ngCookies'])
         };
     }])
 
+    /**
+     * Controller de l'agenda / calendrier
+     */
     .controller('AgendaController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope.events = [];
 
@@ -437,9 +470,7 @@ angular.module('app.controllers', ['ngCookies'])
                     } else {
                         $http({method: 'GET', url: 'api/locations'})
                             .success(function(data) {
-                                console.log(data);
                                 angular.forEach(data, function(value, key) {
-                                    console.log(key, value);
                                     $scope.events.push({
                                         title: value.name,
                                         start: value.date_begin,
@@ -522,6 +553,9 @@ angular.module('app.controllers', ['ngCookies'])
         $scope.eventSources = [$scope.events];
     }])
 
+    /**
+     * Controller de la page de connexion
+     */
     .controller('SigninController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $scope.btnConnect = "<span>Se connecter</span>";
         $scope.errorSignin  = '';

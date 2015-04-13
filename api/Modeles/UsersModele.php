@@ -131,7 +131,7 @@ class UsersModele
     }
 
     /**
-     * Ajoute l'utilisateur passé en paramètre dans la base de données
+     * Ajoute l'utilisateur passé en paramètre dans la base de données et envoi la confirmation d'inscription
      *
      * @param $user
      */
@@ -139,7 +139,28 @@ class UsersModele
     {
         global $QS;
 
-        $QS->query("INSERT INTO mrbs_users (level, name, password, email) VALUES ('$user->level', '$user->name', '$user->password', '$user->email')");
+        $QS->query("INSERT INTO mrbs_users (level, name, password, email) VALUES ('$user->level', '$user->name', 'sha1($user->password)', '$user->email')");
+
+        $passage_ligne  = "\n";
+        $mail           = $user->email;
+        $message_html   = "Bienvenue chez la M2L !<br /><br />";
+        $message_html  .= "Votre nom : <b>$user->name</b><br />";
+        $message_html  .= "Votre adresse email : <b>$user->email</b><br />";
+        $message_html  .= "Votre mot de passe : <b>$user->password</b><br />";
+        $message_html  .= "<br /><br />Pour plus de renseignements, rendez vous sur la page <a href='http://ppe.jeremyfroment.fr/#/contact'>contact</a> de notre site.";
+        $boundary       = "-----=" . md5(rand());
+        $sujet          = "Réinitialisation de mot de passe";
+        $header         = "From: \"M2L\"<M2L>" . $passage_ligne;
+        $header        .= "MIME-Version: 1.0" . $passage_ligne;
+        $header        .= "Content-Type: multipart/alternative;" . $passage_ligne . " boundary=\"$boundary\"" . $passage_ligne;
+        $message        = $passage_ligne . "--" . $boundary . $passage_ligne;
+        $message       .= "Content-Type: text/html; charset=\"UTF-8\"" . $passage_ligne;
+        $message       .= "Content-Transfer-Encoding: 8bit" . $passage_ligne;
+        $message       .= $passage_ligne . $message_html . $passage_ligne;
+        $message       .= $passage_ligne . "--" . $boundary . "--" . $passage_ligne;
+        $message       .= $passage_ligne . "--" . $boundary . "--" . $passage_ligne;
+
+        mail($mail, $sujet, $message, $header);
     }
 }
 

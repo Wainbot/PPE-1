@@ -36,9 +36,7 @@ $app->get('/users/delete/:id', function($id) use ($app) {
 });
 $app->get('/users/new/:user', function($user) use ($app) {
     if (!empty($user)) {
-        $user             = json_decode($user);
-        $user->password   = sha1($user->password);
-        UsersModele::insertUser($user);
+        UsersModele::insertUser(json_decode($user));
     }
 });
 $app->get('/users/:email/:password', function($email, $password) use ($app) {

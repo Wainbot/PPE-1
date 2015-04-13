@@ -98,6 +98,18 @@ var app = angular.module('app', [
                             url: '/forgotpwd',
                             templateUrl: 'tpl/page_forgotpwd.html'
                         })
+                        .state('access.mentionslegales', {
+                            url: '/mentionslegales',
+                            templateUrl: 'tpl/mentions_legales.html'
+                        })
+                        .state('access.contact', {
+                            url: '/contact',
+                            templateUrl: 'tpl/contact.html'
+                        })
+                        .state('access.sitemap', {
+                            url: '/sitemap',
+                            templateUrl: 'tpl/sitemap.html'
+                        })
                         .state('app.404', {
                             url: '/404',
                             templateUrl: 'tpl/page_404.html'
