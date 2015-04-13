@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.10
+-- version 4.1.9
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Mer 18 Mars 2015 à 18:30
--- Version du serveur :  5.5.38
--- Version de PHP :  5.6.2
+-- Généré le :  Jeu 26 Mars 2015 à 14:23
+-- Version du serveur :  5.5.34
+-- Version de PHP :  5.5.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -42,22 +42,31 @@ INSERT INTO `mrbs_levels` (`id`, `label`, `menus`) VALUES
 --
 
 CREATE TABLE `mrbs_location` (
-`id_loc` int(10) NOT NULL,
+  `id_loc` int(10) NOT NULL AUTO_INCREMENT,
   `ref_id` int(10) NOT NULL,
   `user_id` int(11) NOT NULL,
   `state` varchar(20) NOT NULL,
   `date_begin` date NOT NULL,
   `date_back` date NOT NULL,
   `type_loc` varchar(20) NOT NULL,
-  `quantity` int(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  `quantity` int(10) NOT NULL,
+  PRIMARY KEY (`id_loc`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Contenu de la table `mrbs_location`
 --
 
 INSERT INTO `mrbs_location` (`id_loc`, `ref_id`, `user_id`, `state`, `date_begin`, `date_back`, `type_loc`, `quantity`) VALUES
-(7, 1, 113, 'BON', '2015-03-18', '2015-03-31', 'MA', 12);
+(7, 1, 113, 'BON', '2015-03-18', '2015-03-31', 'MA', 12),
+(8, 2, 113, 'BON', '2015-03-25', '2015-03-31', 'RO', 1),
+(9, 1, 113, 'BON', '2015-03-19', '2015-03-31', 'MA', 7),
+(10, 11, 113, 'BON', '2015-03-30', '2015-03-31', 'RO', 1),
+(11, 1, 118, 'BON', '2015-03-19', '2015-03-29', 'MA', 8),
+(12, 1, 118, 'BON', '2015-03-19', '2015-03-30', 'RO', 1),
+(13, 4, 113, 'BON', '2015-03-25', '2015-03-30', 'RO', 1),
+(14, 1, 113, 'BON', '2015-03-20', '2015-03-31', 'MA', 10),
+(15, 3, 113, 'BON', '2015-03-20', '2015-03-30', 'RO', 1);
 
 -- --------------------------------------------------------
 
@@ -66,20 +75,21 @@ INSERT INTO `mrbs_location` (`id_loc`, `ref_id`, `user_id`, `state`, `date_begin
 --
 
 CREATE TABLE `mrbs_materials` (
-`id` int(10) NOT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
   `description` varchar(40) NOT NULL,
   `quantity_restante` int(10) NOT NULL,
   `quantity_max` int(10) NOT NULL,
-  `type` varchar(20) NOT NULL DEFAULT 'MA'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+  `type` varchar(20) NOT NULL DEFAULT 'MA',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `mrbs_materials`
 --
 
 INSERT INTO `mrbs_materials` (`id`, `name`, `description`, `quantity_restante`, `quantity_max`, `type`) VALUES
-(1, 'Ballon de football', 'ballon de la ligue des champions', 68, 80, 'MA'),
+(1, 'Ballon de football', 'ballon de la ligue des champions', 43, 80, 'MA'),
 (2, 'Ballon de basket', '', 50, 50, 'MA'),
 (3, 'Raquette de tennis', '', 50, 50, 'MA'),
 (4, 'Balle de tennis', '', 300, 300, 'MA');
@@ -91,12 +101,13 @@ INSERT INTO `mrbs_materials` (`id`, `name`, `description`, `quantity_restante`, 
 --
 
 CREATE TABLE `mrbs_menus` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `label` varchar(30) NOT NULL,
   `icone` varchar(30) NOT NULL,
   `href` varchar(30) NOT NULL,
-  `color` varchar(30) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+  `color` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `mrbs_menus`
@@ -116,12 +127,13 @@ INSERT INTO `mrbs_menus` (`id`, `label`, `icone`, `href`, `color`) VALUES
 --
 
 CREATE TABLE `mrbs_room` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL DEFAULT '',
   `description` varchar(60) DEFAULT NULL,
   `capacity` int(11) NOT NULL DEFAULT '0',
-  `type` varchar(20) NOT NULL DEFAULT 'RO'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+  `type` varchar(20) NOT NULL DEFAULT 'RO',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Contenu de la table `mrbs_room`
@@ -150,12 +162,13 @@ INSERT INTO `mrbs_room` (`id`, `name`, `description`, `capacity`, `type`) VALUES
 --
 
 CREATE TABLE `mrbs_users` (
-`id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `level` smallint(6) NOT NULL DEFAULT '0',
   `name` varchar(30) DEFAULT NULL,
   `password` varchar(40) DEFAULT NULL,
-  `email` varchar(75) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8;
+  `email` varchar(75) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=119 ;
 
 --
 -- Contenu de la table `mrbs_users`
@@ -163,7 +176,6 @@ CREATE TABLE `mrbs_users` (
 
 INSERT INTO `mrbs_users` (`id`, `level`, `name`, `password`, `email`) VALUES
 (1, 2, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin.mrbs@lorraine-sport.net'),
-(5, 2, 'antoineq', '21232f297a57a5a743894a0e4a801fc3', 'antoine.quentin@lorraine-sport.net'),
 (6, 2, 'aubinv', '21232f297a57a5a743894a0e4a801fc3', 'aubin.veronique@lorraine-sport.net'),
 (7, 2, 'ackermanns', '21232f297a57a5a743894a0e4a801fc3', 'ackermann.solange@lorraine-sport.net'),
 (8, 1, 'guesdonm', 'b89f7a5ff3e3a225d572dac38b2a67f7', 'guesdon.martin@lorraine-sport.net'),
@@ -271,69 +283,7 @@ INSERT INTO `mrbs_users` (`id`, `level`, `name`, `password`, `email`) VALUES
 (110, 0, 'pannetierc', 'b89f7a5ff3e3a225d572dac38b2a67f7', 'pannetier.celine@lorraine-sport.net'),
 (111, 0, 'poulainm', 'b89f7a5ff3e3a225d572dac38b2a67f7', 'poulain.marie-ange@lorraine-sport.net'),
 (112, 0, 'stervinour', 'b89f7a5ff3e3a225d572dac38b2a67f7', 'stervinou.romain@lorraine-sport.net'),
-(113, 0, 'Jeremy', 'password', 'jeremyfroment@yahoo.fr'),
-(114, 2, 'supertoto', 'password', 'supertoto@supertoto.fr');
-
---
--- Index pour les tables exportées
---
-
---
--- Index pour la table `mrbs_location`
---
-ALTER TABLE `mrbs_location`
- ADD PRIMARY KEY (`id_loc`);
-
---
--- Index pour la table `mrbs_materials`
---
-ALTER TABLE `mrbs_materials`
- ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `mrbs_menus`
---
-ALTER TABLE `mrbs_menus`
- ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `mrbs_room`
---
-ALTER TABLE `mrbs_room`
- ADD PRIMARY KEY (`id`);
-
---
--- Index pour la table `mrbs_users`
---
-ALTER TABLE `mrbs_users`
- ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `mrbs_location`
---
-ALTER TABLE `mrbs_location`
-MODIFY `id_loc` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
---
--- AUTO_INCREMENT pour la table `mrbs_materials`
---
-ALTER TABLE `mrbs_materials`
-MODIFY `id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT pour la table `mrbs_menus`
---
-ALTER TABLE `mrbs_menus`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT pour la table `mrbs_room`
---
-ALTER TABLE `mrbs_room`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
---
--- AUTO_INCREMENT pour la table `mrbs_users`
---
-ALTER TABLE `mrbs_users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=115;
+(113, 0, 'Jeremy', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'jeremyfroment@yahoo.fr'),
+(114, 2, 'supertoto', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'supertoto@supertoto.fr'),
+(115, 2, 'megatoto', '5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8', 'megatoto@megatoto.fr'),
+(118, 2, 'toto', '0b9c2625dc21ef05f6ad4ddf47c5f203837aa32c', 'toto@toto.fr');

@@ -7,7 +7,7 @@ angular.module('app.controllers', ['ngCookies'])
         !isTouchDevice && $('html').addClass('no-touch');
         isIE && $('html').addClass('ie');
         $scope.app = {
-            name: 'Typiak',
+            name: 'M2L',
             version: '1.0.0',
             color: {
                 primary: '#7266ba',
